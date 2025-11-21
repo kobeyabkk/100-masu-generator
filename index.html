@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百マス計算ジェネレーター</title>
+    
+    <!-- PWA対応 -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#FFB3BA">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="百マス計算">
+    <link rel="apple-touch-icon" href="pwa/icon-192.svg">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/input-mode.css">
+    
+    <!-- Chart.js for score history graph -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <script src="js/translations.js"></script>
+</head>
+<body>
+    <div class="container no-print">
+        <!-- 言語選択 -->
+        <div class="language-selector">
+            <select id="languageSelect">
+                <option value="ja">🇯🇵 日本語</option>
+                <option value="en">🇺🇸 English</option>
+                <option value="zh_CN">🇨🇳 简体中文</option>
+                <option value="zh_TW">🇹🇼 繁體中文</option>
+                <option value="ko">🇰🇷 한국어</option>
+                <option value="th">🇹🇭 ไทย</option>
+                <option value="id">🇮🇩 Bahasa Indonesia</option>
+                <option value="vi">🇻🇳 Tiếng Việt</option>
+                <option value="hi">🇮🇳 हिन्दी</option>
+                <option value="ar">🇦🇪 العربية</option>
+                <option value="ru">🇷🇺 Русский</option>
+                <option value="nl">🇳🇱 Nederlands</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="fr">🇫🇷 Français</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="pt">🇵🇹 Português</option>
+            </select>
+        </div>
+        
+        <h1 id="pageTitle">百マス計算ジェネレーター</h1>
+        
+        <!-- クイックスタートボタン -->
+        <div class="quick-start-panel">
+            <button class="quick-start-btn" onclick="quickStart('multiplication')" id="quickStartMultiplication">
+                <span class="quick-start-icon">✕</span>
+                <span id="quickStartMultiplicationLabel">10×10 かけ算</span>
+            </button>
+            <button class="quick-start-btn" onclick="quickStart('addition')" id="quickStartAddition">
+                <span class="quick-start-icon">+</span>
+                <span id="quickStartAdditionLabel">10×10 たし算</span>
+            </button>
+            <button class="quick-start-btn" onclick="quickStart('subtraction')" id="quickStartSubtraction">
+                <span class="quick-start-icon">−</span>
+                <span id="quickStartSubtractionLabel">10×10 ひき算</span>
+            </button>
+        </div>
+        
+        <div class="settings-panel">
+            <!-- 基本設定（常に表示） -->
+            <div class="basic-settings">
+                <div class="setting-group">
+                    <label for="operation" id="operationLabel">演算の種類：</label>
+                    <select id="operation">
+                        <option value="addition">たし算</option>
+                        <option value="subtraction">ひき算</option>
+                        <option value="multiplication">かけ算</option>
+                        <option value="division">わり算</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label for="rowSize" id="rowSizeLabel">行数（縦）：</label>
+                    <select id="rowSize">
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10" selected>10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label for="colSize" id="colSizeLabel">列数（横）：</label>
+                    <select id="colSize">
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10" selected>10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 詳細設定（アコーディオン） -->
+            <div class="accordion">
+                <button class="accordion-toggle" id="advancedSettingsToggle" type="button">
+                    <span class="accordion-icon">▼</span>
+                    <span id="advancedSettingsLabel">詳細設定</span>
+                </button>
+                <div class="accordion-content" id="advancedSettingsContent">
+
+            <!-- 割り算プリセット設定（わり算選択時のみ表示） -->
+            <div id="divisionPresetPanel" class="division-preset-panel" style="display: none;">
+                <label id="divisionPresetLabel">割り算プリセット：</label>
+                <div class="preset-options">
+                    <label class="radio-label">
+                        <input type="radio" name="divisionPreset" value="easy">
+                        <span id="divisionPresetEasyLabel">簡単（2桁÷1桁）</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="divisionPreset" value="normal" checked>
+                        <span id="divisionPresetNormalLabel">普通（3桁÷1桁）</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="divisionPreset" value="hard">
+                        <span id="divisionPresetHardLabel">難しい（3桁÷2桁）</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="divisionPreset" value="custom">
+                        <span id="divisionPresetCustomLabel">カスタム（範囲指定）</span>
+                    </label>
+                </div>
+                
+                <small style="display: block; margin-top: 8px; color: #666; font-size: 11px; line-height: 1.4;">
+                    💡 <strong>除数範囲の自動調整:</strong><br>
+                    • 列数8以下 → 2～9（重複なし）<br>
+                    • 列数9 → 1～9（重複なし）<br>
+                    • 列数10以上 → 1～10（重複なし）
+                </small>
+            </div>
+
+            <div class="setting-group">
+                <label id="firstNumberLabel">足される数の範囲：</label>
+                <input type="number" id="firstMin" value="21" min="0" max="999">
+                <span>～</span>
+                <input type="number" id="firstMax" value="30" min="0" max="999">
+            </div>
+
+            <div class="setting-group">
+                <label id="secondNumberLabel">足す数の範囲：</label>
+                <input type="number" id="secondMin" value="1" min="0" max="999">
+                <span>～</span>
+                <input type="number" id="secondMax" value="10" min="0" max="999">
+            </div>
+
+            <div class="setting-group">
+                <label>
+                    <input type="checkbox" id="swapOperands" checked>
+                    <span id="swapOperandsLabel">筆算形式にする（数値の配置を入れ替える）</span>
+                </label>
+            </div>
+
+            <div class="setting-group">
+                <label>
+                    <input type="checkbox" id="allowNegative">
+                    <span id="allowNegativeLabel">負の数を含む</span>
+                    <span id="randomNegativeInline" style="display: none;">
+                        （<input type="checkbox" id="randomNegative">
+                        <span id="randomNegativeLabel">ランダムに負の数にする</span>）
+                    </span>
+                </label>
+            </div>
+
+            <div class="setting-group">
+                <label>
+                    <input type="checkbox" id="useFixedNumbers">
+                    <span id="useFixedNumbersLabel">特定の数値を固定する</span>
+                    <span id="randomShuffleInline" style="display: none;">
+                        （<input type="checkbox" id="randomShuffle">
+                        <span id="randomShuffleLabel">ランダムに配置する</span>）
+                    </span>
+                </label>
+            </div>
+
+            <div id="fixedNumbersPanel" class="setting-group" style="display: none;">
+                <div class="fixed-numbers-container">
+                    <div class="fixed-number-group">
+                        <label id="fixedFirstLabel">固定する数値（行）：</label>
+                        <input type="text" id="fixedFirstNumbers" placeholder="例: 1,2,3,4,5" data-i18n-placeholder="fixedNumbersPlaceholder">
+                        <small id="fixedNumbersHint1">カンマ区切りで入力してください</small>
+                    </div>
+                    <div class="fixed-number-group">
+                        <label id="fixedSecondLabel">固定する数値（列）：</label>
+                        <input type="text" id="fixedSecondNumbers" placeholder="例: 1,2,3,4,5" data-i18n-placeholder="fixedNumbersPlaceholder">
+                        <small id="fixedNumbersHint2">カンマ区切りで入力してください</small>
+                    </div>
+                </div>
+            </div>
+
+                </div><!-- .accordion-content -->
+            </div><!-- .accordion -->
+
+            <div class="button-group">
+                <button id="generateBtn" class="btn btn-primary">問題を生成</button>
+                <button id="printBtn" class="btn btn-secondary" disabled>印刷する</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- モード切り替えタブ -->
+    <div class="mode-tabs no-print">
+        <button id="printModeTab" class="mode-tab active">
+            <span id="printModeLabel">印刷モード</span>
+        </button>
+        <button id="inputModeTab" class="mode-tab">
+            <span id="inputModeLabel">入力モード</span>
+        </button>
+    </div>
+
+    <!-- 印刷モードエリア -->
+    <div id="printArea" class="print-area">
+        <!-- 問題用の表 -->
+        <div class="page-section problem-section">
+            <div class="section-header">
+                <h2 id="problemTitle">百マス計算（問題）</h2>
+                <div class="info">
+                    <span id="problemInfo"></span>
+                </div>
+            </div>
+            <div id="problemTableContainer" class="table-container"></div>
+        </div>
+
+        <!-- 答え用の表 -->
+        <div class="page-section answer-section">
+            <div class="section-header">
+                <h2 id="answerTitle">百マス計算（答え）</h2>
+                <div class="info">
+                    <span id="answerInfo"></span>
+                </div>
+            </div>
+            <div id="answerTableContainer" class="table-container"></div>
+        </div>
+    </div>
+
+    <!-- 入力モードエリア -->
+    <div id="inputArea" class="input-area" style="display: none;">
+        <!-- タイマーとコントロール -->
+        <div class="input-header">
+            <div class="timer-display">
+                <span class="timer-icon">⏱</span>
+                <span id="timerDisplay">00:00.00</span>
+            </div>
+            <div class="timer-controls">
+                <button id="startTimerBtn" class="btn btn-success">
+                    <span id="startTimerLabel">スタート</span>
+                </button>
+                <button id="pauseTimerBtn" class="btn btn-warning" style="display: none;">
+                    <span id="pauseTimerLabel">一時停止</span>
+                </button>
+                <button id="resetTimerBtn" class="btn btn-secondary">
+                    <span id="resetTimerLabel">リセット</span>
+                </button>
+                <button id="toggleStickyBtn" class="btn btn-info" style="display: none;">
+                    <span id="toggleStickyLabel">🔓 全体表示</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 入力設定 -->
+        <div class="input-settings no-print">
+            <div class="setting-group">
+                <label id="moveDirectionLabel">Enterキーで移動：</label>
+                <label class="radio-label">
+                    <input type="radio" name="moveDirection" value="right" checked>
+                    <span id="moveRightLabel">右へ</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="moveDirection" value="down">
+                    <span id="moveDownLabel">下へ</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- メインコンテンツエリア -->
+        <div class="input-main">
+            <!-- 入力グリッド -->
+            <div class="input-grid-container">
+                <div id="inputGrid"></div>
+            </div>
+
+            <!-- テンキー（タブレット/スマホ用） -->
+            <div id="numpad" class="numpad" style="display: none;">
+                <div class="numpad-row">
+                    <button class="numpad-btn" data-value="7">7</button>
+                    <button class="numpad-btn" data-value="8">8</button>
+                    <button class="numpad-btn" data-value="9">9</button>
+                    <button class="numpad-btn numpad-backspace" data-value="backspace">←</button>
+                </div>
+                <div class="numpad-row">
+                    <button class="numpad-btn" data-value="4">4</button>
+                    <button class="numpad-btn" data-value="5">5</button>
+                    <button class="numpad-btn" data-value="6">6</button>
+                    <button class="numpad-btn numpad-delete" data-value="delete">Del</button>
+                </div>
+                <div class="numpad-row">
+                    <button class="numpad-btn" data-value="1">1</button>
+                    <button class="numpad-btn" data-value="2">2</button>
+                    <button class="numpad-btn" data-value="3">3</button>
+                    <button class="numpad-btn numpad-enter" data-value="enter">✓</button>
+                </div>
+                <div class="numpad-row">
+                    <button class="numpad-btn numpad-zero" data-value="0">0</button>
+                    <button class="numpad-btn" data-value="-">−</button>
+                    <button class="numpad-btn numpad-move" data-value="move" id="numpadMoveBtn">→</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 採点ボタン -->
+        <div class="grade-section">
+            <button id="gradeBtn" class="btn btn-primary btn-large">
+                <span id="gradeButtonLabel">採点する</span>
+            </button>
+        </div>
+
+        <!-- 採点結果 -->
+        <div id="resultsArea" class="results-area" style="display: none;">
+            <h3 id="resultsTitle">採点結果</h3>
+            <div class="results-content">
+                <div class="result-item">
+                    <span id="correctLabel">正解：</span>
+                    <span id="correctCount" class="result-value">0</span>
+                </div>
+                <div class="result-item">
+                    <span id="incorrectLabel">不正解：</span>
+                    <span id="incorrectCount" class="result-value">0</span>
+                </div>
+                <div class="result-item">
+                    <span id="accuracyLabel">正答率：</span>
+                    <span id="accuracyValue" class="result-value">0%</span>
+                </div>
+                <div class="result-item">
+                    <span id="timeLabel">タイム：</span>
+                    <span id="timeValue" class="result-value">00:00.00</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 成績記録 -->
+        <div id="historyArea" class="history-area" style="display: none;">
+            <h3 id="historyTitle">成績記録</h3>
+            <div id="historyList" class="history-list"></div>
+        </div>
+
+        <!-- 横持ち推奨メッセージ（スマホ縦持ち時） -->
+        <div id="rotateMessage" class="rotate-message" style="display: none;">
+            <div class="rotate-message-content">
+                <button class="rotate-message-close" id="rotateMessageClose" aria-label="Close">×</button>
+                <p id="rotateDeviceTitle"></p>
+                <p id="rotateDeviceVerticalOK"></p>
+                <p id="rotateDeviceTraining"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/input-mode.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- PWA Service Worker Registration -->
+    <script>
+        // Service Workerの登録
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then((registration) => {
+                        console.log('[PWA] Service Worker registered successfully:', registration.scope);
+                        
+                        // アップデートをチェック
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // 新しいバージョンが利用可能
+                                    console.log('[PWA] New version available!');
+                                    // オプション: ユーザーに通知
+                                    if (confirm('新しいバージョンが利用可能です。更新しますか？')) {
+                                        window.location.reload();
+                                    }
+                                }
+                            });
+                        });
+                    })
+                    .catch((error) => {
+                        console.log('[PWA] Service Worker registration failed:', error);
+                    });
+            });
+        }
+
+        // インストールプロンプトを検出
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // デフォルトの動作を防止
+            e.preventDefault();
+            // 後で使うためにイベントを保存
+            deferredPrompt = e;
+            console.log('[PWA] Install prompt available');
+            
+            // オプション: インストールボタンを表示する場合
+            // showInstallButton();
+        });
+
+        // アプリがインストールされたことを検出
+        window.addEventListener('appinstalled', () => {
+            console.log('[PWA] App installed successfully');
+            deferredPrompt = null;
+        });
+
+        // スタンドアロンモードで実行されているかチェック
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+            console.log('[PWA] Running in standalone mode');
+        }
+    </script>
+</body>
+</html>

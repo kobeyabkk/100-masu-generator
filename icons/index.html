@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アイコンデザイン - 3案比較</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .designs-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        
+        .design-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .design-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+        
+        .design-card h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .design-card .concept {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .design-card .icon-display {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .design-card .features {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .design-card .features h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .design-card .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .design-card .features li {
+            padding: 5px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .design-card .features li:before {
+            content: "✓ ";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .design-card .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: opacity 0.3s ease;
+        }
+        
+        .design-card .btn:hover {
+            opacity: 0.9;
+        }
+        
+        .rating {
+            display: inline-block;
+            background: #FFD700;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .designs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎨 百マス計算ジェネレーター</h1>
+        <p>アイコンデザイン - 3案比較</p>
+    </div>
+    
+    <div class="designs-grid">
+        <!-- 案A -->
+        <div class="design-card">
+            <h2>案A: クリーン・教育的 <span class="rating">⭐⭐⭐ 最推奨</span></h2>
+            <p class="concept">シンプルで洗練された教育アプリ</p>
+            
+            <div class="icon-display">
+                <svg width="200" height="200" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="512" height="512" fill="#FFFFFF" rx="80"/>
+                    <rect x="60" y="60" width="392" height="280" fill="#E3F2FD" rx="20"/>
+                    <line x1="60" y1="130" x2="452" y2="130" stroke="#2196F3" stroke-width="3"/>
+                    <line x1="60" y1="200" x2="452" y2="200" stroke="#2196F3" stroke-width="3"/>
+                    <line x1="60" y1="270" x2="452" y2="270" stroke="#2196F3" stroke-width="3"/>
+                    <line x1="158" y1="60" x2="158" y2="340" stroke="#2196F3" stroke-width="3"/>
+                    <line x1="256" y1="60" x2="256" y2="340" stroke="#2196F3" stroke-width="3"/>
+                    <line x1="354" y1="60" x2="354" y2="340" stroke="#2196F3" stroke-width="3"/>
+                    <rect x="60" y="60" width="392" height="280" fill="none" stroke="#2196F3" stroke-width="6" rx="20"/>
+                    <text x="256" y="420" font-family="Arial, sans-serif" font-size="140" font-weight="bold" 
+                          fill="#1565C0" text-anchor="middle" dominant-baseline="middle">100</text>
+                    <g font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#42A5F5">
+                        <text x="140" y="485" text-anchor="middle">+</text>
+                        <text x="220" y="485" text-anchor="middle">−</text>
+                        <text x="292" y="485" text-anchor="middle">×</text>
+                        <text x="372" y="485" text-anchor="middle">÷</text>
+                    </g>
+                </svg>
+            </div>
+            
+            <div class="features">
+                <h3>特徴</h3>
+                <ul>
+                    <li>プロフェッショナルで信頼感がある</li>
+                    <li>小さいアイコンでも視認性が高い</li>
+                    <li>すべての年齢層に受ける</li>
+                    <li>16言語対応と相性良</li>
+                    <li>長く使える飽きないデザイン</li>
+                </ul>
+            </div>
+            
+            <a href="icon-design-A.html" class="btn">詳細を見る・ダウンロード</a>
+        </div>
+        
+        <!-- 案B -->
+        <div class="design-card">
+            <h2>案B: モダン・フラット <span class="rating">⭐⭐</span></h2>
+            <p class="concept">現代的でスタイリッシュ</p>
+            
+            <div class="icon-display">
+                <svg width="200" height="200" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="bgGradB" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#64B5F6;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="512" height="512" fill="url(#bgGradB)" rx="80"/>
+                    <g opacity="0.2">
+                        <line x1="0" y1="128" x2="512" y2="128" stroke="#FFFFFF" stroke-width="4"/>
+                        <line x1="0" y1="256" x2="512" y2="256" stroke="#FFFFFF" stroke-width="4"/>
+                        <line x1="0" y1="384" x2="512" y2="384" stroke="#FFFFFF" stroke-width="4"/>
+                        <line x1="128" y1="0" x2="128" y2="512" stroke="#FFFFFF" stroke-width="4"/>
+                        <line x1="256" y1="0" x2="256" y2="512" stroke="#FFFFFF" stroke-width="4"/>
+                        <line x1="384" y1="0" x2="384" y2="512" stroke="#FFFFFF" stroke-width="4"/>
+                    </g>
+                    <text x="256" y="276" font-family="Arial, sans-serif" font-size="200" font-weight="bold" 
+                          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">100</text>
+                    <circle cx="100" cy="100" r="50" fill="#FFFFFF" opacity="0.3"/>
+                    <text x="100" y="100" font-family="Arial, sans-serif" font-size="60" font-weight="bold" 
+                          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">+</text>
+                    <circle cx="412" cy="100" r="50" fill="#FFFFFF" opacity="0.3"/>
+                    <text x="412" y="100" font-family="Arial, sans-serif" font-size="60" font-weight="bold" 
+                          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">−</text>
+                    <circle cx="100" cy="412" r="50" fill="#FFFFFF" opacity="0.3"/>
+                    <text x="100" y="412" font-family="Arial, sans-serif" font-size="60" font-weight="bold" 
+                          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">×</text>
+                    <circle cx="412" cy="412" r="50" fill="#FFFFFF" opacity="0.3"/>
+                    <text x="412" y="412" font-family="Arial, sans-serif" font-size="60" font-weight="bold" 
+                          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">÷</text>
+                </svg>
+            </div>
+            
+            <div class="features">
+                <h3>特徴</h3>
+                <ul>
+                    <li>美しいグラデーション背景</li>
+                    <li>モダンでスタイリッシュ</li>
+                    <li>目を引くデザイン</li>
+                    <li>アプリストアで映える</li>
+                    <li>若い世代に人気</li>
+                </ul>
+            </div>
+            
+            <a href="icon-design-B.html" class="btn">詳細を見る・ダウンロード</a>
+        </div>
+        
+        <!-- 案C -->
+        <div class="design-card">
+            <h2>案C: カラフル改善版 <span class="rating">⭐</span></h2>
+            <p class="concept">子ども向けだけど洗練</p>
+            
+            <div class="icon-display">
+                <svg width="200" height="200" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="512" height="512" fill="#F5F5F5" rx="80"/>
+                    <g opacity="0.1">
+                        <line x1="0" y1="128" x2="512" y2="128" stroke="#424242" stroke-width="2"/>
+                        <line x1="0" y1="256" x2="512" y2="256" stroke="#424242" stroke-width="2"/>
+                        <line x1="0" y1="384" x2="512" y2="384" stroke="#424242" stroke-width="2"/>
+                        <line x1="128" y1="0" x2="128" y2="512" stroke="#424242" stroke-width="2"/>
+                        <line x1="256" y1="0" x2="256" y2="512" stroke="#424242" stroke-width="2"/>
+                        <line x1="384" y1="0" x2="384" y2="512" stroke="#424242" stroke-width="2"/>
+                    </g>
+                    <text x="256" y="276" font-family="Arial, sans-serif" font-size="180" font-weight="bold" 
+                          fill="#424242" text-anchor="middle" dominant-baseline="middle">100</text>
+                    <circle cx="110" cy="110" r="65" fill="#FFB3BA" opacity="0.8"/>
+                    <text x="110" y="110" font-family="Arial, sans-serif" font-size="70" font-weight="bold" 
+                          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">+</text>
+                    <circle cx="402" cy="110" r="65" fill="#BAE1FF" opacity="0.8"/>
+                    <text x="402" y="110" font-family="Arial, sans-serif" font-size="70" font-weight="bold" 
+                          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">−</text>
+                    <circle cx="110" cy="402" r="65" fill="#BAFFC9" opacity="0.8"/>
+                    <text x="110" y="402" font-family="Arial, sans-serif" font-size="70" font-weight="bold" 
+                          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">×</text>
+                    <circle cx="402" cy="402" r="65" fill="#FFFFBA" opacity="0.8"/>
+                    <text x="402" y="402" font-family="Arial, sans-serif" font-size="70" font-weight="bold" 
+                          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">÷</text>
+                </svg>
+            </div>
+            
+            <div class="features">
+                <h3>特徴</h3>
+                <ul>
+                    <li>明るく楽しい雰囲気</li>
+                    <li>パステルカラーで優しい</li>
+                    <li>子どもが喜ぶデザイン</li>
+                    <li>教室や塾に最適</li>
+                    <li>親しみやすい印象</li>
+                </ul>
+            </div>
+            
+            <a href="icon-design-C.html" class="btn">詳細を見る・ダウンロード</a>
+        </div>
+    </div>
+</body>
+</html>

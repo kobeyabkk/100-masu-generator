@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案C: カラフル改善版</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #FF6B6B;
+            margin-top: 0;
+        }
+        .icon-preview {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .size-label {
+            text-align: center;
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+        .download-btn {
+            background: #FF6B6B;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .download-btn:hover {
+            background: #EE5A52;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>案C: カラフル改善版 ⭐</h1>
+        <p><strong>コンセプト:</strong> 子ども向けだけど洗練</p>
+        
+        <div class="icon-preview">
+            <div>
+                <svg id="icon-512" width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 背景 -->
+                    <rect width="512" height="512" fill="#F5F5F5" rx="80"/>
+                    
+                    <!-- 薄いグリッド線 -->
+                    <g opacity="0.1">
+                        <line x1="0" y1="128" x2="512" y2="128" stroke="#424242" stroke-width="2"/>
+                        <line x1="0" y1="256" x2="512" y2="256" stroke="#424242" stroke-width="2"/>
+                        <line x1="0" y1="384" x2="512" y2="384" stroke="#424242" stroke-width="2"/>
+                        <line x1="128" y1="0" x2="128" y2="512" stroke="#424242" stroke-width="2"/>
+                        <line x1="256" y1="0" x2="256" y2="512" stroke="#424242" stroke-width="2"/>
+                        <line x1="384" y1="0" x2="384" y2="512" stroke="#424242" stroke-width="2"/>
+                    </g>
+                    
+                    <!-- 中央の100 -->
+                    <text x="256" y="276" font-family="Arial, sans-serif" font-size="180" font-weight="bold" 
+                          fill="#424242" text-anchor="middle" dominant-baseline="middle">100</text>
+                    
+                    <!-- 四隅の円形背景付き記号 -->
+                    <!-- 左上: + (赤) -->
+                    <circle cx="110" cy="110" r="65" fill="#FFB3BA" opacity="0.8"/>
+                    <text x="110" y="110" font-family="Arial, sans-serif" font-size="70" font-weight="bold" 
+                          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">+</text>
+                    
+                    <!-- 右上: − (青) -->
+                    <circle cx="402" cy="110" r="65" fill="#BAE1FF" opacity="0.8"/>
+                    <text x="402" y="110" font-family="Arial, sans-serif" font-size="70" font-weight="bold" 
+                          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">−</text>
+                    
+                    <!-- 左下: × (緑) -->
+                    <circle cx="110" cy="402" r="65" fill="#BAFFC9" opacity="0.8"/>
+                    <text x="110" y="402" font-family="Arial, sans-serif" font-size="70" font-weight="bold" 
+                          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">×</text>
+                    
+                    <!-- 右下: ÷ (黄) -->
+                    <circle cx="402" cy="402" r="65" fill="#FFFFBA" opacity="0.8"/>
+                    <text x="402" y="402" font-family="Arial, sans-serif" font-size="70" font-weight="bold" 
+                          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">÷</text>
+                </svg>
+                <div class="size-label">512×512px</div>
+            </div>
+            
+            <div>
+                <svg id="icon-192" width="192" height="192" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 背景 -->
+                    <rect width="512" height="512" fill="#F5F5F5" rx="80"/>
+                    
+                    <!-- 薄いグリッド線 -->
+                    <g opacity="0.1">
+                        <line x1="0" y1="128" x2="512" y2="128" stroke="#424242" stroke-width="2"/>
+                        <line x1="0" y1="256" x2="512" y2="256" stroke="#424242" stroke-width="2"/>
+                        <line x1="0" y1="384" x2="512" y2="384" stroke="#424242" stroke-width="2"/>
+                        <line x1="128" y1="0" x2="128" y2="512" stroke="#424242" stroke-width="2"/>
+                        <line x1="256" y1="0" x2="256" y2="512" stroke="#424242" stroke-width="2"/>
+                        <line x1="384" y1="0" x2="384" y2="512" stroke="#424242" stroke-width="2"/>
+                    </g>
+                    
+                    <!-- 中央の100 -->
+                    <text x="256" y="276" font-family="Arial, sans-serif" font-size="180" font-weight="bold" 
+                          fill="#424242" text-anchor="middle" dominant-baseline="middle">100</text>
+                    
+                    <!-- 四隅の円形背景付き記号 -->
+                    <!-- 左上: + (赤) -->
+                    <circle cx="110" cy="110" r="65" fill="#FFB3BA" opacity="0.8"/>
+                    <text x="110" y="110" font-family="Arial, sans-serif" font-size="70" font-weight="bold" 
+                          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">+</text>
+                    
+                    <!-- 右上: − (青) -->
+                    <circle cx="402" cy="110" r="65" fill="#BAE1FF" opacity="0.8"/>
+                    <text x="402" y="110" font-family="Arial, sans-serif" font-size="70" font-weight="bold" 
+                          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">−</text>
+                    
+                    <!-- 左下: × (緑) -->
+                    <circle cx="110" cy="402" r="65" fill="#BAFFC9" opacity="0.8"/>
+                    <text x="110" y="402" font-family="Arial, sans-serif" font-size="70" font-weight="bold" 
+                          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">×</text>
+                    
+                    <!-- 右下: ÷ (黄) -->
+                    <circle cx="402" cy="402" r="65" fill="#FFFFBA" opacity="0.8"/>
+                    <text x="402" y="402" font-family="Arial, sans-serif" font-size="70" font-weight="bold" 
+                          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">÷</text>
+                </svg>
+                <div class="size-label">192×192px</div>
+            </div>
+        </div>
+        
+        <button class="download-btn" onclick="downloadIcons()">PNG形式でダウンロード</button>
+    </div>
+
+    <script>
+        function downloadIcons() {
+            // 512x512のダウンロード
+            downloadSVGasPNG('icon-512', 512, 'icon-C-512x512.png');
+            
+            // 192x192のダウンロード
+            setTimeout(() => {
+                downloadSVGasPNG('icon-512', 192, 'icon-C-192x192.png');
+            }, 100);
+        }
+
+        function downloadSVGasPNG(svgId, size, filename) {
+            const svg = document.getElementById(svgId);
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            
+            const img = new Image();
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0, size, size);
+                canvas.toBlob(function(blob) {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                });
+            };
+            img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+        }
+    </script>
+</body>
+</html>

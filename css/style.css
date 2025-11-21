@@ -1,0 +1,782 @@
+/* 基本スタイル */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+    font-size: 16px;
+}
+
+/* コンテナ */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 言語選択 */
+.language-selector {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.language-selector select {
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    background-color: white;
+}
+
+.language-selector select:hover {
+    border-color: #999;
+}
+
+.language-selector select:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* クイックスタートパネル */
+.quick-start-panel {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.quick-start-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    min-width: 160px;
+}
+
+.quick-start-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.quick-start-btn:active {
+    transform: translateY(-1px);
+}
+
+.quick-start-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* 各ボタンの色 */
+.quick-start-btn:nth-child(1) {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.quick-start-btn:nth-child(2) {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.quick-start-btn:nth-child(3) {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.quick-start-btn:nth-child(1):hover {
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.quick-start-btn:nth-child(2):hover {
+    box-shadow: 0 6px 20px rgba(245, 87, 108, 0.6);
+}
+
+.quick-start-btn:nth-child(3):hover {
+    box-shadow: 0 6px 20px rgba(0, 242, 254, 0.6);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .quick-start-btn {
+        min-width: 140px;
+        padding: 16px 24px;
+        font-size: 14px;
+    }
+    
+    .quick-start-icon {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .quick-start-panel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .quick-start-btn {
+        width: 100%;
+    }
+}
+
+/* 設定パネル */
+.settings-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* 基本設定（横並び） */
+.basic-settings {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* タブレット・スマホ対応 */
+@media (max-width: 768px) {
+    .basic-settings {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+/* アコーディオン */
+.accordion {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.accordion-toggle {
+    width: 100%;
+    padding: 15px 20px;
+    background: #f8f8f8;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    transition: background 0.2s;
+    text-align: left;
+}
+
+.accordion-toggle:hover {
+    background: #ececec;
+}
+
+.accordion-icon {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.accordion.open .accordion-icon {
+    transform: rotate(-180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: white;
+}
+
+.accordion.open .accordion-content {
+    max-height: 2000px;
+    padding: 20px;
+}
+
+.setting-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 5px 0;
+}
+
+.setting-group label {
+    font-weight: bold;
+    color: #333;
+    min-width: 200px;
+    font-size: 17px;
+}
+
+.setting-group select,
+.setting-group input[type="number"],
+.setting-group input[type="text"] {
+    padding: 12px 16px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: border-color 0.2s;
+}
+
+.setting-group select:hover,
+.setting-group input[type="number"]:hover,
+.setting-group input[type="text"]:hover {
+    border-color: #999;
+}
+
+.setting-group select:focus,
+.setting-group input[type="number"]:focus,
+.setting-group input[type="text"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.setting-group input[type="number"] {
+    width: 100px;
+}
+
+.setting-group input[type="text"] {
+    flex: 1;
+    min-width: 200px;
+}
+
+.setting-group small {
+    color: #999;
+    font-size: 14px;
+    width: 100%;
+    margin-left: 212px;
+}
+
+/* チェックボックスのスタイル改善 */
+.setting-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.setting-group label:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    min-width: auto;
+    font-size: 17px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* インラインチェックボックス（括弧内） */
+#randomNegativeInline,
+#randomShuffleInline {
+    margin-left: 8px;
+    font-size: 15px;
+    color: #666;
+}
+
+#randomNegativeInline input[type="checkbox"],
+#randomShuffleInline input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    margin-left: 4px;
+}
+
+/* 固定数値パネル */
+.fixed-numbers-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.fixed-number-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.fixed-number-group label {
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+}
+
+/* 割り算プリセットパネル */
+.division-preset-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
+    margin: 10px 0;
+}
+
+.division-preset-panel > label:first-child {
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.preset-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.preset-options .radio-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 6px 8px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    background-color: white;
+    transition: all 0.2s;
+    white-space: nowrap;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.preset-options .radio-label:hover {
+    border-color: #4CAF50;
+    background-color: #f0f8f0;
+}
+
+.preset-options .radio-label input[type="radio"] {
+    cursor: pointer;
+    margin: 0;
+}
+
+.preset-options .radio-label input[type="radio"]:checked + span {
+    color: #4CAF50;
+    font-weight: 600;
+}
+
+/* レスポンシブ対応: 小さい画面では1列に */
+@media (max-width: 768px) {
+    .preset-options {
+        grid-template-columns: 1fr;
+    }
+}
+
+.integer-ratio-setting {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.integer-ratio-setting label {
+    font-weight: 600;
+    color: #333;
+    font-size: 15px;
+    min-width: auto;
+}
+
+.integer-ratio-setting select {
+    padding: 8px 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: white;
+}
+
+.integer-ratio-setting small {
+    color: #666;
+    font-size: 13px;
+    margin-left: 0;
+    width: auto;
+}
+
+/* ボタングループ */
+.button-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 16px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+.btn-secondary {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background-color: #0b7dda;
+}
+
+.btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* 印刷エリア */
+.print-area {
+    display: none;
+    background-color: white;
+}
+
+.print-area.active {
+    display: block;
+    margin-top: 30px;
+}
+
+.page-section {
+    background-color: white;
+    padding: 20px;
+}
+
+.section-header {
+    margin-bottom: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.section-header h2 {
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+}
+
+.info {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 百マス計算の表 */
+.calculation-table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.calculation-table td {
+    border: 1px solid #333;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+/* 左上のセル（空白） */
+.calculation-table td.corner {
+    background-color: #333;
+    border: 1px solid #333;
+}
+
+/* ヘッダー行・列 */
+.calculation-table td.header {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+
+/* 通常のセル */
+.calculation-table td.cell {
+    background-color: white;
+}
+
+/* 斜線のセル（わり算で割り切れない場合） */
+.calculation-table td.disabled {
+    background-color: #f5f5f5;
+    position: relative;
+}
+
+.calculation-table td.disabled::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top right,
+        transparent 0%,
+        transparent calc(50% - 1px),
+        #999 calc(50% - 1px),
+        #999 calc(50% + 1px),
+        transparent calc(50% + 1px),
+        transparent 100%);
+}
+
+/* マスサイズの動的調整 */
+.calculation-table.size-3 td { width: 50px; height: 50px; font-size: 18px; }
+.calculation-table.size-4 td { width: 45px; height: 45px; font-size: 17px; }
+.calculation-table.size-5 td { width: 40px; height: 40px; font-size: 16px; }
+.calculation-table.size-6 td { width: 38px; height: 38px; font-size: 15px; }
+.calculation-table.size-7 td { width: 35px; height: 35px; font-size: 14px; }
+.calculation-table.size-8 td { width: 33px; height: 33px; font-size: 14px; }
+.calculation-table.size-9 td { width: 31px; height: 31px; font-size: 13px; }
+.calculation-table.size-10 td { width: 30px; height: 30px; font-size: 13px; }
+.calculation-table.size-11 td { width: 30px; height: 30px; font-size: 12px; }
+.calculation-table.size-12 td { width: 28px; height: 28px; font-size: 11px; }
+.calculation-table.size-13 td { width: 26px; height: 26px; font-size: 11px; }
+.calculation-table.size-14 td { width: 24px; height: 24px; font-size: 10px; }
+.calculation-table.size-15 td { width: 23px; height: 23px; font-size: 10px; }
+
+/* 印刷スタイル */
+@media print {
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        overflow: hidden;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    .print-area {
+        display: block !important;
+        width: 100%;
+        height: 100vh;
+        page-break-after: avoid;
+        page-break-before: avoid;
+        overflow: hidden;
+    }
+
+    .page-section {
+        page-break-inside: avoid;
+        page-break-after: avoid;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 10px;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .problem-section {
+        page-break-after: avoid;
+        border-bottom: 1px dashed #ccc;
+        height: 66vh;
+    }
+
+    .answer-section {
+        page-break-before: avoid;
+        page-break-after: avoid;
+        height: 33vh;
+    }
+
+    .section-header {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: nowrap;
+    }
+
+    .section-header h2 {
+        font-size: 18px;
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    .info {
+        font-size: 12px;
+        text-align: center;
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    .table-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 10px;
+    }
+
+    /* 印刷時のマスサイズ調整 - 問題セクション（大きめ） */
+    .problem-section .calculation-table.size-3 td { width: 70px; height: 70px; font-size: 24px; }
+    .problem-section .calculation-table.size-4 td { width: 60px; height: 60px; font-size: 22px; }
+    .problem-section .calculation-table.size-5 td { width: 55px; height: 55px; font-size: 20px; }
+    .problem-section .calculation-table.size-6 td { width: 50px; height: 50px; font-size: 18px; }
+    .problem-section .calculation-table.size-7 td { width: 46px; height: 46px; font-size: 17px; }
+    .problem-section .calculation-table.size-8 td { width: 42px; height: 42px; font-size: 16px; }
+    .problem-section .calculation-table.size-9 td { width: 38px; height: 38px; font-size: 15px; }
+    .problem-section .calculation-table.size-10 td { width: 36px; height: 36px; font-size: 14px; }
+    .problem-section .calculation-table.size-11 td { width: 35px; height: 35px; font-size: 14px; }
+    .problem-section .calculation-table.size-12 td { width: 33px; height: 33px; font-size: 13px; }
+    .problem-section .calculation-table.size-13 td { width: 31px; height: 31px; font-size: 12px; }
+    .problem-section .calculation-table.size-14 td { width: 29px; height: 29px; font-size: 12px; }
+    .problem-section .calculation-table.size-15 td { width: 28px; height: 28px; font-size: 11px; }
+
+    /* 印刷時のマスサイズ調整 - 答えセクション（小さめ） */
+    .answer-section .calculation-table.size-3 td { width: 50px; height: 50px; font-size: 18px; }
+    .answer-section .calculation-table.size-4 td { width: 42px; height: 42px; font-size: 16px; }
+    .answer-section .calculation-table.size-5 td { width: 38px; height: 38px; font-size: 15px; }
+    .answer-section .calculation-table.size-6 td { width: 34px; height: 34px; font-size: 14px; }
+    .answer-section .calculation-table.size-7 td { width: 32px; height: 32px; font-size: 13px; }
+    .answer-section .calculation-table.size-8 td { width: 30px; height: 30px; font-size: 12px; }
+    .answer-section .calculation-table.size-9 td { width: 27px; height: 27px; font-size: 11px; }
+    .answer-section .calculation-table.size-10 td { width: 25px; height: 25px; font-size: 11px; }
+    .answer-section .calculation-table.size-11 td { width: 25px; height: 25px; font-size: 10px; }
+    .answer-section .calculation-table.size-12 td { width: 24px; height: 24px; font-size: 10px; }
+    .answer-section .calculation-table.size-13 td { width: 23px; height: 23px; font-size: 10px; }
+    .answer-section .calculation-table.size-14 td { width: 22px; height: 22px; font-size: 9px; }
+    .answer-section .calculation-table.size-15 td { width: 21px; height: 21px; font-size: 9px; }
+
+    @page {
+        size: A4 portrait;
+        margin: 8mm;
+    }
+
+    /* 余分なページを防ぐ */
+    body::after {
+        content: none;
+    }
+}
+
+/* アラビア語（RTL）対応 */
+html[lang="ar"] body,
+html[lang="ar"] .container,
+html[lang="ar"] .language-selector,
+html[lang="ar"] .setting-group,
+html[lang="ar"] .fixed-numbers-container {
+    direction: rtl;
+    text-align: right;
+}
+
+html[lang="ar"] .language-selector {
+    justify-content: flex-start;
+}
+
+html[lang="ar"] label {
+    text-align: right;
+}
+
+html[lang="ar"] .button-group {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/* アラビア語でも数字と表は左から右（LTR）を維持 */
+html[lang="ar"] .calculation-table,
+html[lang="ar"] .calculation-table td,
+html[lang="ar"] input[type="number"],
+html[lang="ar"] input[type="text"] {
+    direction: ltr;
+    text-align: center;
+}
+
+html[lang="ar"] .section-header h2,
+html[lang="ar"] .info {
+    direction: rtl;
+    text-align: right;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .setting-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .setting-group label {
+        min-width: auto;
+    }
+
+    .setting-group small {
+        margin-left: 0;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}

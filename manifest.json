@@ -1,0 +1,74 @@
+{
+  "name": "百マス計算ジェネレーター",
+  "short_name": "百マス計算",
+  "description": "A4サイズで印刷可能な百マス計算問題を自動生成するWebアプリケーション。16言語対応、オフラインで使用可能。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F5F5",
+  "theme_color": "#FFB3BA",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "pwa/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "pwa/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "utilities", "productivity"],
+  "lang": "ja",
+  "dir": "ltr",
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "screenshots/desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Desktop view of 100-Grid Math Generator"
+    },
+    {
+      "src": "screenshots/mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile view of 100-Grid Math Generator"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "たし算",
+      "short_name": "たし算",
+      "description": "たし算の問題を生成",
+      "url": "/?operation=addition",
+      "icons": [{ "src": "pwa/icon-192.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "ひき算",
+      "short_name": "ひき算",
+      "description": "ひき算の問題を生成",
+      "url": "/?operation=subtraction",
+      "icons": [{ "src": "pwa/icon-192.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "かけ算",
+      "short_name": "かけ算",
+      "description": "かけ算の問題を生成",
+      "url": "/?operation=multiplication",
+      "icons": [{ "src": "pwa/icon-192.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "わり算",
+      "short_name": "わり算",
+      "description": "わり算の問題を生成",
+      "url": "/?operation=division",
+      "icons": [{ "src": "pwa/icon-192.svg", "sizes": "192x192" }]
+    }
+  ]
+}

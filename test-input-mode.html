@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>入力モードテスト</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/input-mode.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .test-info {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .test-info h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .test-info ul {
+            list-style: none;
+            padding: 0;
+        }
+        .test-info li {
+            padding: 5px 0;
+            font-size: 16px;
+        }
+        .test-info li:before {
+            content: "✓ ";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h2>🧪 入力モードボタンテスト</h2>
+        <ul>
+            <li>問題を生成ボタンをクリック</li>
+            <li>入力モードタブをクリック</li>
+            <li>タイマーボタンが動作するか確認</li>
+            <li>セルをクリックして入力可能か確認</li>
+            <li>採点ボタンが動作するか確認</li>
+        </ul>
+    </div>
+
+    <div class="container no-print">
+        <h1>百マス計算ジェネレーター（テスト版）</h1>
+        
+        <div class="settings-panel">
+            <div class="setting-group">
+                <label for="operation">演算の種類：</label>
+                <select id="operation">
+                    <option value="addition">たし算</option>
+                    <option value="subtraction">ひき算</option>
+                    <option value="multiplication">かけ算</option>
+                    <option value="division">わり算</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <label for="rowSize">行数：</label>
+                <select id="rowSize">
+                    <option value="5">5</option>
+                    <option value="10" selected>10</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <label for="colSize">列数：</label>
+                <select id="colSize">
+                    <option value="5">5</option>
+                    <option value="10" selected>10</option>
+                </select>
+            </div>
+
+            <div class="button-group">
+                <button type="button" class="btn btn-primary" id="generateBtn">問題を生成</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 印刷エリア -->
+    <div id="printArea" class="print-area"></div>
+
+    <!-- 入力モードエリア -->
+    <div id="inputArea" class="input-area" style="display: none;">
+        <!-- モード切り替えタブ -->
+        <div class="mode-tabs">
+            <button id="printModeTab" class="mode-tab active">
+                <span id="printModeLabel">印刷モード</span>
+            </button>
+            <button id="inputModeTab" class="mode-tab">
+                <span id="inputModeLabel">入力モード</span>
+            </button>
+        </div>
+
+        <!-- タイマーヘッダー -->
+        <div class="input-header">
+            <div class="timer-display">
+                <span class="timer-icon">⏱️</span>
+                <span id="timerDisplay">00:00.00</span>
+            </div>
+            <div class="timer-controls">
+                <button id="startTimerBtn" class="btn btn-success">
+                    <span id="startTimerLabel">スタート</span>
+                </button>
+                <button id="pauseTimerBtn" class="btn btn-warning" disabled>
+                    <span id="pauseTimerLabel">一時停止</span>
+                </button>
+                <button id="resetTimerBtn" class="btn btn-secondary">
+                    <span id="resetTimerLabel">リセット</span>
+                </button>
+                <button id="toggleStickyBtn" class="btn btn-secondary" style="display: none;">
+                    <span id="toggleStickyLabel">📌 ヘッダー固定</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 入力設定 -->
+        <div class="input-settings">
+            <div class="setting-group">
+                <label id="moveDirectionLabel">Enterキーで移動：</label>
+                <label class="radio-label">
+                    <input type="radio" name="moveDirection" value="right" checked>
+                    <span id="moveRightLabel">右へ</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="moveDirection" value="down">
+                    <span id="moveDownLabel">下へ</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- 入力グリッド -->
+        <div class="input-main">
+            <div class="input-grid-container">
+                <div id="inputGrid"></div>
+            </div>
+        </div>
+
+        <!-- 採点ボタン -->
+        <div class="grade-section">
+            <button id="gradeBtn" class="btn btn-primary btn-large">
+                <span id="gradeButtonLabel">採点する</span>
+            </button>
+        </div>
+
+        <!-- 採点結果 -->
+        <div id="resultsArea" class="results-area" style="display: none;">
+            <h3 id="resultsTitle">結果</h3>
+            <div class="results-content">
+                <div class="result-item">
+                    <span id="correctLabel">正解</span>
+                    <span id="correctCount" class="result-value">0</span>
+                </div>
+                <div class="result-item">
+                    <span id="incorrectLabel">不正解</span>
+                    <span id="incorrectCount" class="result-value">0</span>
+                </div>
+                <div class="result-item">
+                    <span id="accuracyLabel">正答率</span>
+                    <span id="accuracyRate" class="result-value">0%</span>
+                </div>
+                <div class="result-item">
+                    <span id="timeLabel">タイム</span>
+                    <span id="finalTime" class="result-value">00:00.00</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 成績履歴 -->
+        <div id="historyArea" class="history-area" style="display: none;">
+            <h3 id="historyTitle">成績履歴</h3>
+            <div id="historyList" class="history-list"></div>
+        </div>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/input-mode.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        console.log('🧪 Test page loaded');
+        console.log('✓ translations.js loaded');
+        console.log('✓ input-mode.js loaded');
+        console.log('✓ main.js loaded');
+        console.log('---');
+        console.log('Ready to test!');
+    </script>
+</body>
+</html>

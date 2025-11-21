@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画面回転テスト</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        .info {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 8px;
+        }
+        .portrait {
+            background: #ffebee;
+            color: #c62828;
+        }
+        .landscape {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        #message {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        #details {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>📱 画面回転検知テスト</h1>
+    
+    <div id="message"></div>
+    
+    <div id="info" class="info">
+        <div id="details"></div>
+    </div>
+    
+    <p style="margin-top: 30px; font-size: 14px; color: #666;">
+        このページでiPhoneを縦→横に回転させて、<br>
+        正しく検知されるか確認してください
+    </p>
+
+    <script>
+        function checkOrientation() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const isLandscape = width > height;
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            
+            const messageDiv = document.getElementById('message');
+            const infoDiv = document.getElementById('info');
+            const detailsDiv = document.getElementById('details');
+            
+            if (isLandscape) {
+                messageDiv.textContent = '✅ 横向き（ランドスケープ）検知しました！';
+                infoDiv.className = 'info landscape';
+            } else {
+                messageDiv.textContent = '📱 縦向き（ポートレート）です';
+                infoDiv.className = 'info portrait';
+            }
+            
+            detailsDiv.innerHTML = `
+                <strong>デバイス情報:</strong><br>
+                タッチデバイス: ${isTouchDevice ? 'はい' : 'いいえ'}<br>
+                画面幅: ${width}px<br>
+                画面高さ: ${height}px<br>
+                横向き判定: ${isLandscape ? 'はい (幅 > 高さ)' : 'いいえ (幅 ≤ 高さ)'}<br>
+                orientation API: ${window.screen?.orientation?.type || '未対応'}<br>
+                window.orientation: ${window.orientation !== undefined ? window.orientation + '°' : '未対応'}<br>
+                <br>
+                <em style="font-size: 12px;">最終チェック時刻: ${new Date().toLocaleTimeString()}</em>
+            `;
+            
+            console.log('[Orientation Check]', {
+                width,
+                height,
+                isLandscape,
+                isTouchDevice,
+                screenOrientation: window.screen?.orientation?.type,
+                windowOrientation: window.orientation
+            });
+        }
+        
+        // 初回チェック
+        checkOrientation();
+        
+        // イベントリスナー
+        window.addEventListener('resize', () => {
+            console.log('[Event] resize');
+            checkOrientation();
+        });
+        
+        window.addEventListener('orientationchange', () => {
+            console.log('[Event] orientationchange');
+            setTimeout(checkOrientation, 100);
+        });
+        
+        // 定期的にチェック（念のため）
+        setInterval(checkOrientation, 1000);
+    </script>
+</body>
+</html>

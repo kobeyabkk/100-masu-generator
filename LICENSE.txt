@@ -1,0 +1,211 @@
+============================================
+百マス計算ジェネレーター
+100-Grid Math Generator
+百格计算生成器
+Generator Perhitungan Kotak 100
+100-ग्रिड गणित जनरेटर
+Trình Tạo Bảng Tính 100 Ô
+مولد جدول الحساب 100
+Генератор таблицы 100 вычислений
+100-Raster Rekengenerator
+============================================
+
+ライセンス契約 / License Agreement / 许可协议 / 
+Perjanjian Lisensi / लाइसेंस समझौता / Thỏa Thuận Giấy Phép /
+اتفاقية الترخيص / Лицензионное соглашение / Licentieovereenkomst
+
+---日本語---
+
+【使用許諾】
+このソフトウェアを購入いただきありがとうございます。
+以下の条件で本ソフトウェアをご使用いただけます。
+
+1. 使用権
+   - 個人での使用（家庭、学習など）
+   - 教育機関での使用（学校、塾、予備校など）
+   - 商用での使用（有料指導、教材作成など）
+
+2. 許可される行為
+   ✅ 本ソフトウェアで作成した教材の配布・販売
+   ✅ 複数のコンピュータへのインストール（購入者本人のみ）
+   ✅ 教室や塾での使用
+   ✅ オンライン授業での画面共有
+
+3. 禁止される行為
+   ❌ 本ソフトウェアそのものの再配布・転売
+   ❌ ソースコードの商用利用（教材ではなくソフトウェアとしての販売）
+   ❌ 本ソフトウェアを使用した類似製品の作成・販売
+
+4. 保証と免責
+   本ソフトウェアは「現状のまま」提供されます。
+   開発者は、本ソフトウェアの使用により生じた損害について一切の責任を負いません。
+
+5. アップデート
+   購入者は無料でアップデートを受け取る権利があります。
+   Gumroadから再ダウンロードしてください。
+
+---English---
+
+【License Grant】
+Thank you for purchasing this software.
+You may use this software under the following conditions:
+
+1. Usage Rights
+   - Personal use (home, study, etc.)
+   - Educational institutions (schools, tutoring centers, etc.)
+   - Commercial use (paid tutoring, creating teaching materials, etc.)
+
+2. Permitted Actions
+   ✅ Distribute/sell materials created with this software
+   ✅ Install on multiple computers (purchaser only)
+   ✅ Use in classrooms or tutoring centers
+   ✅ Screen sharing in online lessons
+
+3. Prohibited Actions
+   ❌ Redistribute or resell the software itself
+   ❌ Commercial use of source code (selling as software, not materials)
+   ❌ Create/sell similar products using this software
+
+4. Warranty and Disclaimer
+   This software is provided "as is."
+   The developer assumes no responsibility for damages arising from use of this software.
+
+5. Updates
+   Purchasers have the right to receive free updates.
+   Re-download from Gumroad.
+
+---中文---
+
+【许可授权】
+感谢您购买本软件。
+您可以在以下条件下使用本软件：
+
+1. 使用权
+   - 个人使用（家庭、学习等）
+   - 教育机构使用（学校、培训中心等）
+   - 商业使用（有偿辅导、创建教材等）
+
+2. 允许的行为
+   ✅ 分发/销售使用本软件创建的材料
+   ✅ 安装在多台计算机上（仅限购买者）
+   ✅ 在教室或培训中心使用
+   ✅ 在线课程中的屏幕共享
+
+3. 禁止的行为
+   ❌ 重新分发或转售软件本身
+   ❌ 源代码的商业使用（作为软件销售，而非材料）
+   ❌ 使用本软件创建/销售类似产品
+
+4. 保证和免责
+   本软件按"原样"提供。
+   开发者对使用本软件产生的损害不承担任何责任。
+
+5. 更新
+   购买者有权免费接收更新。
+   从Gumroad重新下载。
+
+---Bahasa Indonesia---
+
+【Pemberian Lisensi】
+Terima kasih telah membeli perangkat lunak ini.
+Anda dapat menggunakan perangkat lunak ini dengan ketentuan berikut:
+
+1. Hak Penggunaan
+   - Penggunaan pribadi (rumah, belajar, dll.)
+   - Institusi pendidikan (sekolah, pusat bimbingan belajar, dll.)
+   - Penggunaan komersial (les berbayar, membuat materi pengajaran, dll.)
+
+2. Tindakan yang Diizinkan
+   ✅ Mendistribusikan/menjual materi yang dibuat dengan perangkat lunak ini
+   ✅ Menginstal di beberapa komputer (hanya pembeli)
+   ✅ Menggunakan di ruang kelas atau pusat bimbingan belajar
+   ✅ Berbagi layar dalam pelajaran online
+
+3. Tindakan yang Dilarang
+   ❌ Mendistribusikan ulang atau menjual kembali perangkat lunak itu sendiri
+   ❌ Penggunaan komersial kode sumber (menjual sebagai perangkat lunak, bukan materi)
+   ❌ Membuat/menjual produk serupa menggunakan perangkat lunak ini
+
+4. Jaminan dan Penafian
+   Perangkat lunak ini disediakan "sebagaimana adanya."
+   Pengembang tidak bertanggung jawab atas kerusakan yang timbul dari penggunaan perangkat lunak ini.
+
+5. Pembaruan
+   Pembeli berhak menerima pembaruan gratis.
+   Unduh ulang dari Gumroad.
+
+---हिन्दी---
+
+【लाइसेंस अनुदान】
+इस सॉफ़्टवेयर को खरीदने के लिए धन्यवाद।
+आप निम्नलिखित शर्तों के तहत इस सॉफ़्टवेयर का उपयोग कर सकते हैं:
+
+1. उपयोग अधिकार
+   - व्यक्तिगत उपयोग (घर, अध्ययन, आदि)
+   - शैक्षिक संस्थान (स्कूल, ट्यूटरिंग सेंटर, आदि)
+   - वाणिज्यिक उपयोग (सशुल्क ट्यूशन, शिक्षण सामग्री बनाना, आदि)
+
+2. अनुमत कार्य
+   ✅ इस सॉफ़्टवेयर से बनाई गई सामग्री वितरित/बेचें
+   ✅ कई कंप्यूटरों पर स्थापित करें (केवल खरीदार)
+   ✅ कक्षाओं या ट्यूटरिंग सेंटरों में उपयोग करें
+   ✅ ऑनलाइन पाठों में स्क्रीन साझा करें
+
+3. निषिद्ध कार्य
+   ❌ सॉफ़्टवेयर को पुनर्वितरित या पुनर्विक्रय करें
+   ❌ स्रोत कोड का वाणिज्यिक उपयोग (सॉफ़्टवेयर के रूप में बेचना, सामग्री नहीं)
+   ❌ इस सॉफ़्टवेयर का उपयोग करके समान उत्पाद बनाएं/बेचें
+
+4. वारंटी और अस्वीकरण
+   यह सॉफ़्टवेयर "जैसा है" प्रदान किया गया है।
+   डेवलपर इस सॉफ़्टवेयर के उपयोग से उत्पन्न होने वाली क्षति के लिए कोई जिम्मेदारी नहीं लेता है।
+
+5. अपडेट
+   खरीदारों को मुफ्त अपडेट प्राप्त करने का अधिकार है।
+   Gumroad से पुनः डाउनलोड करें।
+
+---Tiếng Việt---
+
+【Cấp Phép】
+Cảm ơn bạn đã mua phần mềm này.
+Bạn có thể sử dụng phần mềm này theo các điều kiện sau:
+
+1. Quyền Sử Dụng
+   - Sử dụng cá nhân (nhà, học tập, v.v.)
+   - Các tổ chức giáo dục (trường học, trung tâm gia sư, v.v.)
+   - Sử dụng thương mại (dạy kèm có phí, tạo tài liệu giảng dạy, v.v.)
+
+2. Hành Động Được Phép
+   ✅ Phân phối/bán tài liệu được tạo bằng phần mềm này
+   ✅ Cài đặt trên nhiều máy tính (chỉ người mua)
+   ✅ Sử dụng trong lớp học hoặc trung tâm gia sư
+   ✅ Chia sẻ màn hình trong các buổi học trực tuyến
+
+3. Hành Động Bị Cấm
+   ❌ Phân phối lại hoặc bán lại chính phần mềm
+   ❌ Sử dụng thương mại mã nguồn (bán như phần mềm, không phải tài liệu)
+   ❌ Tạo/bán sản phẩm tương tự sử dụng phần mềm này
+
+4. Bảo Hành và Miễn Trừ
+   Phần mềm này được cung cấp "nguyên trạng."
+   Nhà phát triển không chịu trách nhiệm về thiệt hại phát sinh từ việc sử dụng phần mềm này.
+
+5. Cập Nhật
+   Người mua có quyền nhận cập nhật miễn phí.
+   Tải lại từ Gumroad.
+
+============================================
+
+Copyright © 2025 Programming no KOBEYA
+All rights reserved.
+
+Developer: Masamichi Suzuki (鈴木政路)
+Location: Bangkok, Thailand
+Organization: Programming no KOBEYA (プログラミングのKOBEYA)
+
+For support: Contact through Gumroad purchase page
+
+Version: 2.2.0
+Date: November 2024
+
+============================================

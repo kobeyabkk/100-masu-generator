@@ -1,0 +1,277 @@
+============================================
+百マス計算ジェネレーター
+100-Grid Math Generator  
+百格计算生成器
+Generator Perhitungan Kotak 100
+100-ग्रिड गणित जनरेटर
+Trình Tạo Bảng Tính 100 Ô
+مولد جدول الحساب 100
+Генератор таблицы 100 вычислений
+100-Raster Rekengenerator
+============================================
+
+Current Version: 2.11.0
+Release Date: November 18, 2024
+Developer: Programming no KOBEYA
+
+============================================
+VERSION HISTORY / 更新履歴 / 版本历史 / Riwayat Versi / संस्करण इतिहास / Lịch Sử Phiên Bản / 
+تاريخ الإصدار / История версий / Versiegeschiedenis
+============================================
+
+---
+
+v2.11.0 (November 18, 2024)
+📊 Progress Visualization - Growth Chart Feature
+
+[日本語]
+- 成長グラフ機能を追加（Chart.js 4.4.0使用）
+- タイム推移グラフと正答率推移グラフを自動生成
+- 3回以上の記録で美しいグラフを表示
+- 16言語完全対応（全翻訳キー追加）
+- 既存機能に影響なし（非侵襲的実装）
+- レスポンシブデザイン対応（PC/タブレット/スマホ）
+
+[English]
+- Added progress chart feature (using Chart.js 4.4.0)
+- Auto-generates time progress and accuracy progress charts
+- Beautiful graphs display with 3+ records
+- Full support for 16 languages (all translation keys added)
+- Non-invasive implementation (no impact on existing features)
+- Responsive design (PC/Tablet/Mobile)
+
+[中文]
+- 添加了成长图表功能（使用Chart.js 4.4.0）
+- 自动生成时间进度和正确率进度图表
+- 3次以上记录显示精美图表
+- 完全支持16种语言（添加所有翻译键）
+- 非侵入式实现（不影响现有功能）
+- 响应式设计（PC/平板/手机）
+
+---
+
+v2.2.0 (November 13, 2024)
+🌍 Premium Market Expansion - High-Purchasing Power Regions
+
+[日本語]
+- 対応言語を13→16言語に拡大
+- 新規追加：アラビア語、ロシア語、オランダ語
+- 購買力の高い市場をカバー（湾岸諸国、ロシア、オランダ・ベルギー）
+- アラビア語RTL（右から左）レイアウト対応
+- 世界人口カバー率が50億人→57億人に拡大（72%）
+
+[English]
+- Expanded language support from 13 to 16 languages
+- New additions: Arabic, Russian, Dutch
+- Now covers high-purchasing power markets (Gulf states, Russia, Netherlands/Belgium)
+- Arabic RTL (Right-to-Left) layout support
+- Global population coverage increased from 5.0B to 5.7B people (72%)
+
+[中文]
+- 语言支持从13种扩展到16种
+- 新增：阿拉伯语、俄语、荷兰语
+- 现已覆盖高购买力市场（海湾国家、俄罗斯、荷兰/比利时）
+- 阿拉伯语RTL（从右到左）布局支持
+- 全球人口覆盖率从50亿增至57亿（72%）
+
+---
+
+v2.1.0 (November 13, 2024)
+🌏 Major Language Expansion
+
+[日本語]
+- 対応言語を10→13言語に拡大
+- 新規追加：インドネシア語、ベトナム語、ヒンディー語
+- 世界人口カバー率が41億人→50億人に拡大（63%）
+- インドネシア（2.75億人）、インド（5.3億人）、ベトナム（1億人）の巨大市場に対応
+
+[English]
+- Expanded language support from 10 to 13 languages
+- New additions: Indonesian, Vietnamese, Hindi
+- Global population coverage increased from 4.1B to 5.0B people (63%)
+- Now covers major markets: Indonesia (275M), India (530M), Vietnam (98M)
+
+[中文]
+- 语言支持从10种扩展到13种
+- 新增：印尼语、越南语、印地语
+- 全球人口覆盖率从41亿增至50亿（63%）
+- 现已覆盖主要市场：印度尼西亚（2.75亿）、印度（5.3亿）、越南（9800万）
+
+[Bahasa Indonesia]
+- Perluasan dukungan bahasa dari 10 ke 13 bahasa
+- Penambahan baru: Bahasa Indonesia, Vietnam, Hindi
+- Cakupan populasi global meningkat dari 4,1M menjadi 5,0M orang (63%)
+- Sekarang mencakup pasar utama: Indonesia (275 juta), India (530 juta), Vietnam (98 juta)
+
+[हिन्दी]
+- भाषा समर्थन 10 से 13 भाषाओं तक विस्तारित
+- नए जोड़: इंडोनेशियाई, वियतनामी, हिंदी
+- वैश्विक जनसंख्या कवरेज 4.1 बिलियन से 5.0 बिलियन लोगों तक बढ़ी (63%)
+- अब प्रमुख बाजारों को कवर करता है: इंडोनेशिया (275 मिलियन), भारत (530 मिलियन), वियतनाम (98 मिलियन)
+
+[Tiếng Việt]
+- Mở rộng hỗ trợ ngôn ngữ từ 10 lên 13 ngôn ngữ
+- Bổ sung mới: Tiếng Indonesia, Tiếng Việt, Tiếng Hindi
+- Phạm vi phủ sóng dân số toàn cầu tăng từ 4,1 tỷ lên 5,0 tỷ người (63%)
+- Hiện bao phủ các thị trường chính: Indonesia (275 triệu), Ấn Độ (530 triệu), Việt Nam (98 triệu)
+
+---
+
+v2.0.1 (November 10, 2024)
+🔧 Input Enhancement
+
+[日本語]
+- 全角数字の自動半角変換機能を追加
+- 読点（、）も自動的に半角カンマ（,）に変換
+- リアルタイム変換で入力ミスを防止
+
+[English]
+- Added auto-conversion for full-width numbers
+- Japanese comma (、) auto-converts to half-width comma (,)
+- Real-time conversion prevents input errors
+
+[中文]
+- 添加全角数字自动转换功能
+- 中文逗号（、）自动转换为半角逗号（,）
+- 实时转换防止输入错误
+
+---
+
+v2.0.0 (November 10, 2024)
+🌍 Multi-Language Support
+
+[日本語]
+- 10言語に対応（日本語、英語、中国語簡体字・繁体字、韓国語、タイ語、スペイン語、フランス語、ドイツ語、ポルトガル語）
+- 言語切り替え機能を追加
+- ブラウザの言語を自動検出
+- 選択した言語を自動保存
+
+[English]
+- Support for 10 languages (Japanese, English, Chinese Simplified & Traditional, Korean, Thai, Spanish, French, German, Portuguese)
+- Added language switching feature
+- Auto-detect browser language
+- Automatically save language preference
+
+[中文]
+- 支持10种语言（日语、英语、简体中文、繁体中文、韩语、泰语、西班牙语、法语、德语、葡萄牙语）
+- 添加语言切换功能
+- 自动检测浏览器语言
+- 自动保存语言偏好
+
+---
+
+v1.3.0 (November 10, 2024)
+📊 Grid Size Expansion
+
+[日本語]
+- マスサイズを3×3から15×15まで13種類に拡張
+- 各サイズに最適化されたフォントとレイアウト
+
+[English]
+- Expanded grid sizes from 3×3 to 15×15 (13 options)
+- Optimized fonts and layout for each size
+
+[中文]
+- 网格大小从3×3扩展到15×15（13个选项）
+- 为每个大小优化字体和布局
+
+---
+
+v1.2.1 (November 10, 2024)
+🖨️ Print Optimization
+
+[日本語]
+- 印刷時の空白ページ問題を修正
+- 1ページのみ印刷されるように最適化
+
+[English]
+- Fixed blank page issue when printing
+- Optimized to print on single page only
+
+[中文]
+- 修复打印时的空白页问题
+- 优化为仅打印一页
+
+---
+
+v1.2.0 (November 10, 2024)
+🎨 UI Improvements
+
+[日本語]
+- 文字サイズを大幅に拡大
+- ボタンと入力フィールドのサイズを拡大
+- ホバー効果とフォーカス効果を追加
+
+[English]
+- Significantly increased font sizes
+- Enlarged buttons and input fields
+- Added hover and focus effects
+
+[中文]
+- 显著增加字体大小
+- 放大按钮和输入字段
+- 添加悬停和焦点效果
+
+---
+
+v1.1.0 (November 10, 2024)
+✨ Core Features
+
+[日本語]
+- 数値の重複防止機能（Fisher-Yatesシャッフル）
+- マスの数と数値範囲の整合性チェック
+
+[English]
+- Duplicate number prevention (Fisher-Yates shuffle)
+- Validation of grid size and number range
+
+[中文]
+- 防止重复数字（Fisher-Yates洗牌）
+- 验证网格大小和数字范围
+
+---
+
+v1.0.0 (November 10, 2024)
+🎉 Initial Release
+
+[日本語]
+- 4種類の演算対応（たし算、ひき算、かけ算、わり算）
+- 可変マスサイズ
+- A4印刷最適化
+
+[English]
+- 4 operations support (addition, subtraction, multiplication, division)
+- Variable grid sizes
+- A4 print optimization
+
+[中文]
+- 支持4种运算（加法、减法、乘法、除法）
+- 可变网格大小
+- A4打印优化
+
+============================================
+
+SYSTEM REQUIREMENTS / 動作環境 / 系统要求
+
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+- No internet connection required
+- Recommended: Desktop or laptop for printing
+
+============================================
+
+CONTACT / お問い合わせ / 联系方式
+
+For support, updates, or feedback:
+サポート、更新、フィードバックについて：
+支持、更新或反馈：
+
+→ Contact through Gumroad purchase page
+→ Gumroad購入ページからお問い合わせください  
+→ 通过Gumroad购买页面联系
+
+============================================
+
+© 2024 Programming no KOBEYA
+All Rights Reserved
+
+============================================
