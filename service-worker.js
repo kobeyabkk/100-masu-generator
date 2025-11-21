@@ -1,7 +1,7 @@
 // Service Worker for 100-Grid Math Generator PWA
-// Version 2.10.9 (Critical bug fixes: gridSize, iOS Safari timing, null checks)
+// Version 2.11.2 (Critical bug fixes: gridSize, iOS Safari timing, null checks)
 
-const CACHE_NAME = '100-grid-math-v2.10.9';
+const CACHE_NAME = '100-grid-math-v2.11.2';
 const urlsToCache = [
   '/',
   '/index.html',
